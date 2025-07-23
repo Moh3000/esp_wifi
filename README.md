@@ -60,16 +60,13 @@ void setup() {
 void loop() {
   server.handleClient();
 }
-
----
-
-## 📱 Android Client
-
+📱 Android Client
 You can use any HTTP library in Android to send a POST request.
 
-### 📦 Using `HttpURLConnection` Example (Java)
-
-```java
+📦 Using HttpURLConnection Example (Java)
+java
+Copy
+Edit
 URL url = new URL("http://<ESP_IP>/");
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 conn.setRequestMethod("POST");
@@ -79,3 +76,19 @@ OutputStream os = conn.getOutputStream();
 os.write("Hello ESP32".getBytes());
 os.flush();
 os.close();
+🧪 Testing With Postman or curl
+bash
+Copy
+Edit
+curl -X POST http://<ESP_IP>/ -d "Test from curl"
+Or use Postman to send a raw POST body to http://<ESP_IP>/.
+
+🛠 Troubleshooting
+Issue	Solution
+ESP32 not connecting	Check Wi-Fi credentials and signal strength
+Server not responding	Ensure ESP IP is correct and port 80 is open
+Android error	Confirm permissions and network access on Android
+non-fast-forward error	Run git pull --allow-unrelated-histories before pushing
+
+📄 License
+This project is licensed under the MIT License. Feel free to use, modify, and distribute.
