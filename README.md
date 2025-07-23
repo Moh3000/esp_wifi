@@ -60,15 +60,21 @@ void setup() {
 void loop() {
   server.handleClient();
 }
-##  📱 Android Client
-You can use any HTTP library in Android to send a POST request:
 
-📦 Using HttpURLConnection Example (Java)
+---
+
+## 📱 Android Client
+
+You can use any HTTP library in Android to send a POST request.
+
+### 📦 Using `HttpURLConnection` Example (Java)
+
 ```java
 URL url = new URL("http://<ESP_IP>/");
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 conn.setRequestMethod("POST");
 conn.setDoOutput(true);
+
 OutputStream os = conn.getOutputStream();
 os.write("Hello ESP32".getBytes());
 os.flush();
